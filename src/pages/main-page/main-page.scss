@@ -1,0 +1,52 @@
+@import '/src/theme/vars.scss';
+
+.main-layout {
+    background-image: url('/public/Light.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    // max-width: 1440px;
+
+    .content-layout {
+        background: transparent;
+
+        &__content {
+        }
+
+        &__preview {
+            background-color: $bg-light;
+            margin: 24px;
+            padding: 24px;
+            max-width: 752px;
+
+            &-text {
+                color: $primary-light;
+                font-size: 16px;
+                font-weight: 400;
+                margin: 0;
+            }
+        }
+
+        &__slogan {
+            background-color: $bg-light;
+            margin: 0 24px;
+            padding: 24px;
+            max-width: 752px;
+
+            &-text {
+                font-weight: 500;
+                margin: 0;
+            }
+        }
+
+        &__features {
+            width: 752px;
+            margin: 0 24px;
+            align-items: stretch;
+
+            .ant-space-item {
+                flex: 1 0 auto;
+            }
+        }
+    }
+}
