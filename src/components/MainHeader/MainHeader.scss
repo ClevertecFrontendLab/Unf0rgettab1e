@@ -1,0 +1,15 @@
+.header {
+    background: #f0f5ff;
+    height: auto;
+    padding: 0 24px;
+
+    &__breadcrumb {
+        padding-top: 16px;
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+}

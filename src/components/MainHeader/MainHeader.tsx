@@ -1,6 +1,6 @@
 import { Breadcrumb, Button, Layout, Space, Typography } from 'antd';
 import React from 'react';
-import './Header.scss';
+import './MainHeader.scss';
 import { SettingOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
@@ -9,10 +9,10 @@ const { Title } = Typography;
 export const MainHeader: React.FC = () => {
     return (
         <Header className='header'>
-            <Breadcrumb>
+            <Breadcrumb className='header__breadcrumb'>
                 <Breadcrumb.Item>Главная</Breadcrumb.Item>
             </Breadcrumb>
-            <div className='content'>
+            <div className='header__content'>
                 <Title>
                     Приветствуем тебя в CleverFit — приложении,
                     <br />
