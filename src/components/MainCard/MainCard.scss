@@ -1,0 +1,13 @@
+@import 'src/theme/vars.scss';
+
+.main-card {
+    .ant-card-head-title {
+        font-weight: 400;
+        text-align: center;
+    }
+
+    .ant-card-body {
+        text-align: center;
+        padding: 12px;
+    }
+}
