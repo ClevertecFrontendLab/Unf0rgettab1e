@@ -21,6 +21,28 @@ const SIDEBAR_DESKTOP_MODE = 'inline';
 export const Sidebar: React.FC = () => {
     const [collapsed, setCollapsed] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const MENU_ITEMS = [
+        {
+            key: '1',
+            icon: isMobile ? '' : <CalendarTwoTone twoToneColor='#061178' />,
+            label: 'Календарь',
+        },
+        {
+            key: '2',
+            icon: isMobile ? '' : <HeartFilled style={{ color: '#061178' }} />,
+            label: 'Тренировки',
+        },
+        {
+            key: '3',
+            icon: isMobile ? '' : <TrophyFilled style={{ color: '#061178' }} />,
+            label: 'Достижения',
+        },
+        {
+            key: '4',
+            icon: isMobile ? '' : <IdcardOutlined style={{ color: '#061178' }} />,
+            label: 'Профиль',
+        },
+    ];
 
     return (
         <Sider
@@ -42,28 +64,7 @@ export const Sidebar: React.FC = () => {
             <Menu
                 theme='light'
                 mode={isMobile ? SIDEBAR_MOBILE_MODE : SIDEBAR_DESKTOP_MODE}
-                items={[
-                    {
-                        key: '1',
-                        icon: isMobile ? '' : <CalendarTwoTone twoToneColor='#061178' />,
-                        label: 'Календарь',
-                    },
-                    {
-                        key: '2',
-                        icon: isMobile ? '' : <HeartFilled style={{ color: '#061178' }} />,
-                        label: 'Тренировки',
-                    },
-                    {
-                        key: '3',
-                        icon: isMobile ? '' : <TrophyFilled style={{ color: '#061178' }} />,
-                        label: 'Достижения',
-                    },
-                    {
-                        key: '4',
-                        icon: isMobile ? '' : <IdcardOutlined style={{ color: '#061178' }} />,
-                        label: 'Профиль',
-                    },
-                ]}
+                items={MENU_ITEMS}
             />
             <Button className='logout'>
                 {isMobile ? '' : <img src={Logout} alt='Logout' />}
