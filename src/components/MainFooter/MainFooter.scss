@@ -1,0 +1,15 @@
+.ant-layout-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 600px) {
+    .ant-layout-footer {
+        flex-direction: column-reverse;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 24px;
+    }
+}

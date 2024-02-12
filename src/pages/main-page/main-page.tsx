@@ -1,34 +1,61 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Layout, Space, Typography } from 'antd';
+import { CalendarTwoTone, HeartFilled, IdcardOutlined } from '@ant-design/icons';
+import { Sidebar } from '@components/Sidebar';
+import { MainHeader } from '@components/MainHeader';
+import { MainCard } from '@components/MainCard';
+import { MainFooter } from '@components/MainFooter';
+import './main-page.scss';
 
-import reactLogo from '/react.svg';
-import viteLogo from '/vite.svg';
-import tsLogo from '/ts.svg';
-import './main-page.css';
+const { Content } = Layout;
+const { Title, Paragraph } = Typography;
 
 export const MainPage: React.FC = () => {
-    const [count, setCount] = useState(0);
-
     return (
-        <>
-            <div>
-                <a href='https://vitejs.dev' target='_blank'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                </a>
-                <a href='https://react.dev' target='_blank'>
-                    <img src={reactLogo} className='logo react' alt='React logo' />
-                </a>
-                <a href='https://www.typescriptlang.org/' target='_blank'>
-                    <img src={tsLogo} className='logo' alt='TS logo' />
-                </a>
-            </div>
-            <h1>Vite + React + TS</h1>
-            <div className='card'>
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/pages/main-page.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className='read-the-docs'>Click on the Vite and React logos to learn more</p>
-        </>
+        <Layout className='main-layout'>
+            <Sidebar></Sidebar>
+            <Layout className='content-layout'>
+                <MainHeader></MainHeader>
+                <Content className='content-layout__content'>
+                    <Space className='content-layout__preview'>
+                        <Paragraph className='content-layout__preview-text'>
+                            С CleverFit ты сможешь:
+                            <br />— планировать свои тренировки на календаре, выбирая тип и уровень
+                            нагрузки;
+                            <br />— отслеживать свои достижения в разделе статистики, сравнивая свои
+                            результаты с нормами и рекордами;
+                            <br />— создавать свой профиль, где ты можешь загружать свои фото, видео
+                            и отзывы о тренировках;
+                            <br />— выполнять расписанные тренировки для разных частей тела, следуя
+                            подробным инструкциям и советам профессиональных тренеров.
+                        </Paragraph>
+                    </Space>
+                    <Space className='content-layout__slogan'>
+                        <Title level={4} className='content-layout__slogan-text'>
+                            CleverFit — это не просто приложение, а твой личный помощник в&nbsp;мире
+                            фитнеса. Не откладывай на завтра — начни тренироваться уже сегодня!
+                        </Title>
+                    </Space>
+                    <div className='content-layout__features'>
+                        <MainCard
+                            title='Расписать тренировки'
+                            icon={<HeartFilled style={{ color: '#2F54EB' }} />}
+                            linkText='Тренировки'
+                        ></MainCard>
+                        <MainCard
+                            title='Назначить календарь'
+                            icon={<CalendarTwoTone twoToneColor={'#2F54EB'} />}
+                            linkText='Календарь'
+                        ></MainCard>
+                        <MainCard
+                            title='Заполнить профиль'
+                            icon={<IdcardOutlined style={{ color: '#2F54EB' }} />}
+                            linkText='Профиль'
+                        ></MainCard>
+                    </div>
+                </Content>
+                <MainFooter />
+            </Layout>
+        </Layout>
     );
 };
