@@ -37,7 +37,7 @@ export const MainPage: React.FC = () => {
                             фитнеса. Не откладывай на завтра — начни тренироваться уже сегодня!
                         </Title>
                     </Space>
-                    <Space size={'middle'} className='content-layout__features'>
+                    <div className='content-layout__features'>
                         <MainCard
                             title='Расписать тренировки'
                             icon={<HeartFilled style={{ color: '#2F54EB' }} />}
@@ -53,7 +53,7 @@ export const MainPage: React.FC = () => {
                             icon={<IdcardOutlined style={{ color: '#2F54EB' }} />}
                             linkText='Профиль'
                         ></MainCard>
-                    </Space>
+                    </div>
                 </Content>
                 <MainFooter />
             </Layout>

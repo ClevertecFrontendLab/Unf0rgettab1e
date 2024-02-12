@@ -18,6 +18,7 @@ const { Sider } = Layout;
 
 export const Sidebar: React.FC = () => {
     const [collapsed, setCollapsed] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     return (
         <Sider
@@ -25,7 +26,12 @@ export const Sidebar: React.FC = () => {
             trigger={null}
             collapsible
             collapsed={collapsed}
-            width={208}
+            breakpoint='sm'
+            collapsedWidth={isMobile ? 0 : 80}
+            onBreakpoint={(broken) => {
+                broken ? setIsMobile(true) : setIsMobile(false);
+            }}
+            width={isMobile ? 106 : 208}
             theme='light'
         >
             <div className='logo'>
@@ -33,37 +39,41 @@ export const Sidebar: React.FC = () => {
             </div>
             <Menu
                 theme='light'
-                mode='inline'
+                mode={isMobile ? 'vertical' : 'inline'}
                 items={[
                     {
                         key: '1',
-                        icon: <CalendarTwoTone twoToneColor='#061178' />,
+                        icon: isMobile ? '' : <CalendarTwoTone twoToneColor='#061178' />,
                         label: 'Календарь',
                     },
                     {
                         key: '2',
-                        icon: <HeartFilled style={{ color: '#061178' }} />,
+                        icon: isMobile ? '' : <HeartFilled style={{ color: '#061178' }} />,
                         label: 'Тренировки',
                     },
                     {
                         key: '3',
-                        icon: <TrophyFilled style={{ color: '#061178' }} />,
+                        icon: isMobile ? '' : <TrophyFilled style={{ color: '#061178' }} />,
                         label: 'Достижения',
                     },
                     {
                         key: '4',
-                        icon: <IdcardOutlined style={{ color: '#061178' }} />,
+                        icon: isMobile ? '' : <IdcardOutlined style={{ color: '#061178' }} />,
                         label: 'Профиль',
                     },
                 ]}
             />
             <Button className='logout'>
-                <img src={Logout} alt='Logout' />
+                {isMobile ? '' : <img src={Logout} alt='Logout' />}
                 <Typography.Text style={{ marginLeft: '25px' }}>
                     {collapsed ? '' : 'Выйти'}
                 </Typography.Text>
             </Button>
-            <Space className='sidebar__trigger' onClick={() => setCollapsed(!collapsed)}>
+            <Space
+                className='sidebar__trigger'
+                data-test-id={`sider-switch${isMobile ? '-mobile' : ''}`}
+                onClick={() => setCollapsed(!collapsed)}
+            >
                 {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
             </Space>
         </Sider>

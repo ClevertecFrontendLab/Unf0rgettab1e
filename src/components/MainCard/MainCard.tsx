@@ -11,7 +11,7 @@ type MainCardProps = {
 
 export const MainCard = (props: MainCardProps) => {
     return (
-        <Card title={props.title} className='main-card'>
+        <Card size='small' title={props.title} className='main-card'>
             {props.icon}
             <Button type='link'>{props.linkText}</Button>
         </Card>

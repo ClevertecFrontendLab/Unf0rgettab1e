@@ -12,4 +12,48 @@
         justify-content: space-between;
         align-items: flex-start;
     }
+    &__title.ant-typography {
+        font-weight: 700;
+    }
+}
+
+@media screen and (max-width: 860px) {
+    .header {
+        &__breadcrumb {
+            padding-bottom: 8px;
+        }
+        &__settings {
+            &-icon.anticon {
+                display: none;
+            }
+        }
+        &__title.ant-typography {
+            font-size: 24px;
+            font-weight: 500;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .header {
+        &__settings {
+            background-color: #fff;
+            border-radius: 100px;
+            width: 32px;
+            height: 32px;
+            border: 1px solid #d9d9d9;
+            padding: 0 9px;
+
+            &-icon.anticon {
+                display: block;
+            }
+            &-text.ant-typography {
+                display: none;
+            }
+        }
+
+        &__title.ant-typography {
+            font-size: 20px;
+        }
+    }
 }

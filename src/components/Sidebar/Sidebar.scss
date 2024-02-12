@@ -33,3 +33,37 @@
         justify-content: center;
     }
 }
+
+@media screen and (max-width: 576px) {
+    .sidebar {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 10;
+
+        .logo {
+            padding: 16px;
+            margin: 0 0 16px 0;
+            img {
+                width: 72px;
+                height: 18px;
+            }
+        }
+
+        .ant-menu-item {
+            padding: 0 8px;
+        }
+
+        .logout {
+            padding: 7px 0;
+        }
+        &__trigger {
+            width: 32px;
+            height: 48px;
+            left: 100%;
+            top: 24px;
+            clip-path: polygon(0 0, 100% 12%, 100% 88%, 0 100%);
+        }
+    }
+}

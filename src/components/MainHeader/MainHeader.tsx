@@ -4,7 +4,7 @@ import './MainHeader.scss';
 import { SettingOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;
-const { Title } = Typography;
+const { Title, Text } = Typography;
 
 export const MainHeader: React.FC = () => {
     return (
@@ -13,14 +13,14 @@ export const MainHeader: React.FC = () => {
                 <Breadcrumb.Item>Главная</Breadcrumb.Item>
             </Breadcrumb>
             <div className='header__content'>
-                <Title>
+                <Title className='header__title'>
                     Приветствуем тебя в CleverFit — приложении,
                     <br />
                     которое поможет тебе добиться своей мечты!
                 </Title>
-                <Button type='text'>
-                    <SettingOutlined />
-                    Настройки
+                <Button type='text' className='header__settings'>
+                    <SettingOutlined className='header__settings-icon' />
+                    <Text className='header__settings-text'>Настройки</Text>
                 </Button>
             </div>
         </Header>

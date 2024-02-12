@@ -1,13 +1,39 @@
 @import 'src/theme/vars.scss';
 
 .main-card {
+    flex: 1;
+
     .ant-card-head-title {
         font-weight: 400;
         text-align: center;
+        text-wrap: wrap;
     }
 
     .ant-card-body {
         text-align: center;
         padding: 12px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .main-card {
+        .ant-card-head {
+            padding: 0 24px;
+
+            .ant-card-head-title {
+                text-align: left;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .main-card {
+        flex: 1 1 160px;
+        .ant-card-head {
+            .ant-card-head-title {
+                text-align: center;
+            }
+        }
     }
 }
