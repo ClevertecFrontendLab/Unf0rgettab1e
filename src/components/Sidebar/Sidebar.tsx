@@ -15,6 +15,8 @@ import Logout from '/Logout.svg';
 import './Sidebar.scss';
 
 const { Sider } = Layout;
+const SIDEBAR_MOBILE_MODE = 'vertical';
+const SIDEBAR_DESKTOP_MODE = 'inline';
 
 export const Sidebar: React.FC = () => {
     const [collapsed, setCollapsed] = useState(false);
@@ -39,7 +41,7 @@ export const Sidebar: React.FC = () => {
             </div>
             <Menu
                 theme='light'
-                mode={isMobile ? 'vertical' : 'inline'}
+                mode={isMobile ? SIDEBAR_MOBILE_MODE : SIDEBAR_DESKTOP_MODE}
                 items={[
                     {
                         key: '1',
