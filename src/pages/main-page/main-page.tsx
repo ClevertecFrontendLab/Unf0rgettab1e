@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-
-import './main-page.scss';
+import React from 'react';
 import { Layout, Space, Typography } from 'antd';
+import { CalendarTwoTone, HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import { Sidebar } from '@components/Sidebar';
 import { MainHeader } from '@components/MainHeader';
 import { MainCard } from '@components/MainCard';
-import { CalendarTwoTone, HeartFilled, IdcardOutlined, TrophyFilled } from '@ant-design/icons';
 import { MainFooter } from '@components/MainFooter';
+import './main-page.scss';
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 export const MainPage: React.FC = () => {

@@ -1,15 +1,15 @@
+import React from 'react';
 import { Button, Card } from 'antd';
-import React, { ReactNode } from 'react';
 
 import './MainCard.scss';
 
 type MainCardProps = {
     title: string;
-    icon: ReactNode;
+    icon: React.ReactNode;
     linkText: string;
 };
 
-export const MainCard = (props: MainCardProps) => {
+export const MainCard: React.FC<MainCardProps> = (props) => {
     return (
         <Card size='small' title={props.title} className='main-card'>
             {props.icon}

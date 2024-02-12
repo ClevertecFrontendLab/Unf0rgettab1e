@@ -1,7 +1,7 @@
-import { Breadcrumb, Button, Layout, Space, Typography } from 'antd';
 import React from 'react';
-import './MainHeader.scss';
+import { Breadcrumb, Button, Layout, Typography } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
+import './MainHeader.scss';
 
 const { Header } = Layout;
 const { Title, Text } = Typography;
