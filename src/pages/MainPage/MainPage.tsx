@@ -5,7 +5,7 @@ import { Sidebar } from '@components/Sidebar';
 import { MainHeader } from '@components/MainHeader';
 import { MainCard } from '@components/MainCard';
 import { MainFooter } from '@components/MainFooter';
-import './main-page.scss';
+import './MainPage.scss';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
