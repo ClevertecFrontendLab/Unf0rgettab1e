@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Layout, Space, Typography } from 'antd';
 import { CalendarTwoTone, HeartFilled, IdcardOutlined } from '@ant-design/icons';
 import { Sidebar } from '@components/Sidebar';
 import { MainHeader } from '@components/MainHeader';
 import { MainCard } from '@components/MainCard';
 import { MainFooter } from '@components/MainFooter';
+import { push } from 'redux-first-history';
+import { Paths } from '@utils/constants/Paths';
+import { useAppDispatch } from '@hooks';
 import './MainPage.scss';
 
 const { Content } = Layout;
 const { Title, Paragraph } = Typography;
 
 export const MainPage: React.FC = () => {
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        !localStorage.getItem('token') ? dispatch(push(Paths.AUTH)) : '';
+    }, [dispatch]);
+
     return (
         <Layout className='main-layout'>
             <Sidebar></Sidebar>

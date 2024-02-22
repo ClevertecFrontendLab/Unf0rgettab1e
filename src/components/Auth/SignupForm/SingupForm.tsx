@@ -1,39 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Input, Button } from 'antd';
 import { GooglePlusOutlined } from '@ant-design/icons';
-import { useLocation } from 'react-router-dom';
+import { useAppDispatch } from '@hooks';
+import { registration } from '@actions/authAction';
 
 export const SignupForm: React.FC = () => {
-    const location = useLocation();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    const dispatch = useAppDispatch();
+
+    const signupFinishHandler = () => {
+        dispatch(registration(email, password));
+    };
     return (
         <Form
-            name='normal_login'
+            name='signup'
             initialValues={{ remember: true }}
             className='login-form'
-            // onFinish={onFinish}
+            onFinish={signupFinishHandler}
         >
             <Form.Item
-                name='username'
+                name='email'
                 className='auth-form__item'
-                rules={[{ required: true, message: 'Please input your Username!' }]}
+                rules={[
+                    {
+                        required: true,
+                        type: 'email',
+                        message: '',
+                    },
+                ]}
             >
-                <Input className='auth-form__input' addonBefore='e-mail:' size='large' />
+                <Input
+                    className='auth-form__input'
+                    addonBefore='e-mail:'
+                    size='large'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                />
             </Form.Item>
             <Form.Item
                 name='password'
                 className='auth-form__item'
-                rules={[{ required: true, message: 'Please input your Password!' }]}
+                rules={[
+                    {
+                        required: true,
+                        pattern: new RegExp(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/),
+                    },
+                ]}
+                help='Пароль не менее 8 символов, с заглавной буквой и цифрой'
             >
-                <Input.Password className='auth-form__input' placeholder='Пароль' size='large' />
-                <span className='password-rules'>
-                    Пароль не менее 8 символов, с заглавной буквой и цифрой
-                </span>
+                <Input.Password
+                    className='auth-form__input'
+                    placeholder='Пароль'
+                    size='large'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
             </Form.Item>
             <Form.Item
                 name='confirm'
                 className='auth-form__item'
-                rules={[{ required: true, message: 'Please input your Password!' }]}
+                dependencies={['password']}
+                rules={[
+                    {
+                        required: true,
+                        message: '',
+                    },
+                    ({ getFieldValue }) => ({
+                        validator(_, value) {
+                            if (!value || getFieldValue('password') === value) {
+                                return Promise.resolve();
+                            }
+                            return Promise.reject(new Error('Пароли не совпадают'));
+                        },
+                    }),
+                ]}
             >
                 <Input.Password
                     className='auth-form__input'
