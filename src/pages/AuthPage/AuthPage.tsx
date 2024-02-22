@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from 'antd';
-import { AuthTabs } from '@components/Auth/AuthTabs';
 
 import './AuthPage.scss';
 

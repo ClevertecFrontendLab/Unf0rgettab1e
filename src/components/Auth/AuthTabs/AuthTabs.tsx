@@ -20,7 +20,7 @@ export const AuthTabs: React.FC = () => {
         <div className='auth-form'>
             <Row>
                 <Col span={24} className='auth-form__logo'>
-                    <Image src='/public/Logo.svg' preview={false} width={310} />
+                    <Image src='/Logo.svg' preview={false} width={310} />
                 </Col>
             </Row>
             <Row className='auth-form__tabs'>

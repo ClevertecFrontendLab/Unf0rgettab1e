@@ -27,8 +27,7 @@
     }
 
     .login-form {
-        .password-rules {
-            color: $title-light-secondary;
+        .ant-form-item-explain {
             font-size: 12px;
         }
     }
