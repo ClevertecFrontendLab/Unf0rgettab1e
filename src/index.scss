@@ -6,6 +6,14 @@ body {
     font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-.ant-btn-link {
+.ant-btn-link,
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
     color: $primary-link-light;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner,
+.ant-btn-primary,
+.ant-tabs-ink-bar {
+    border-color: $primary-link-light;
+    background-color: $primary-link-light;
 }

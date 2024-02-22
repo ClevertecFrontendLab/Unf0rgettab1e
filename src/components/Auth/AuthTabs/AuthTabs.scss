@@ -1,0 +1,51 @@
+@import '/src/theme/vars.scss';
+
+.auth-form {
+    background-color: $bg-light;
+    width: 540px;
+    padding: 64px 85px;
+    border-radius: 2px;
+
+    &__item {
+        margin-bottom: 32px;
+    }
+
+    &__logo {
+        margin-bottom: 48px;
+        text-align: center;
+    }
+
+    &__tabs {
+        .ant-tabs-nav-list {
+            width: 100%;
+            .ant-tabs-tab {
+                width: 50%;
+                display: flex;
+                justify-content: center;
+            }
+        }
+    }
+
+    .login-form {
+        .password-rules {
+            color: $title-light-secondary;
+            font-size: 12px;
+        }
+    }
+
+    &__features {
+        .ant-form-item-control-input-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &-forgot {
+            padding-right: 0;
+        }
+    }
+
+    &__submit {
+        width: 100%;
+    }
+}
