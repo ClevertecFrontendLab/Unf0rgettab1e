@@ -6,7 +6,7 @@ import './AuthTabs.scss';
 import { LoginForm } from '../LoginForm';
 import { SignupForm } from '../SignupForm';
 import { useLocation } from 'react-router-dom';
-import { useAppDispatch } from '@hooks/typed-react-redux-hooks';
+import { useAppDispatch } from '@hooks';
 
 export const AuthTabs: React.FC = () => {
     const location = useLocation();

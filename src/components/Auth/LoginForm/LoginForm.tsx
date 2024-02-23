@@ -5,6 +5,7 @@ import { useAppDispatch } from '@hooks';
 import { login } from '@actions/authAction';
 import { push } from 'redux-first-history';
 import { Paths } from '@utils/constants/Paths';
+import { userSlice } from '@redux/reducers/UserSlice';
 
 export const LoginForm: React.FC = () => {
     const [email, setEmail] = useState('');
@@ -13,8 +14,9 @@ export const LoginForm: React.FC = () => {
     const dispatch = useAppDispatch();
 
     const loginFinishHandler = async () => {
+        dispatch(userSlice.actions.setLoading(true));
         await dispatch(login(email, password));
-        await dispatch(push(Paths.MAIN));
+        dispatch(push(Paths.MAIN));
     };
 
     return (
