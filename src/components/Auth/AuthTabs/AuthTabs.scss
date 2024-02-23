@@ -1,11 +1,6 @@
 @import '/src/theme/vars.scss';
 
 .auth-form {
-    background-color: $bg-light;
-    width: 540px;
-    padding: 64px 85px;
-    border-radius: 2px;
-
     &__item {
         margin-bottom: 32px;
     }

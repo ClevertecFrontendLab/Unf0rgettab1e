@@ -1,3 +1,5 @@
+@import '@theme/vars.scss';
+
 .auth-layout {
     min-height: 100vh;
     background-image: url('/Auth_light.png');
@@ -10,5 +12,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+        .container {
+            background-color: $bg-light;
+            width: 540px;
+            padding: 64px 85px;
+            border-radius: 2px;
+        }
     }
 }

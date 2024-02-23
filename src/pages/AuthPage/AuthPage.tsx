@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Layout } from 'antd';
-import { Paths } from '@utils/constants/Paths';
+import { paths } from '@utils/constants/paths';
 import { push } from 'redux-first-history';
 import { useAppDispatch } from '@hooks';
 import './AuthPage.scss';
@@ -12,12 +12,14 @@ export const AuthPage: React.FC<AuthPageProps> = ({ children }) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        localStorage.getItem('token') ? dispatch(push(Paths.MAIN)) : '';
+        localStorage.getItem('token') ? dispatch(push(paths.MAIN)) : '';
     }, [dispatch]);
 
     return (
         <Layout className='auth-layout'>
-            <Layout.Content>{children}</Layout.Content>
+            <Layout.Content>
+                <div className='container'>{children}</div>
+            </Layout.Content>
         </Layout>
     );
 };
