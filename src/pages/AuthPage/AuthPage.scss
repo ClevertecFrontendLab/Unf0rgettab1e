@@ -1,6 +1,8 @@
 .auth-layout {
     min-height: 100vh;
     background-image: url('/Auth_light.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 
     .ant-layout-content {
         background: rgba(121, 156, 212, 0.5);
