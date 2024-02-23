@@ -1,30 +1,41 @@
 import { loginService, logoutService, registrationService } from '@services/authService';
 import { userSlice } from '@redux/reducers/UserSlice';
 import { AppDispatch } from '@redux/configure-store';
+import { push } from 'redux-first-history';
+import { paths } from '@utils/constants/paths';
+import { isAxiosError } from 'axios';
 
 export const login = (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
-        const response = await loginService(email, password);
-        console.log('login', response);
+        const { login, setLoading } = userSlice.actions;
+        dispatch(setLoading(true));
 
+        const response = await loginService(email, password);
         localStorage.setItem('token', response.data.accessToken);
-        const { login } = userSlice.actions;
         dispatch(login({ email }));
+        dispatch(push(paths.MAIN));
     } catch (e) {
         console.log(e);
+        dispatch(push(paths.RESULT.ERROR_LOGIN));
     }
 };
 
 export const registration = (email: string, password: string) => async (dispatch: AppDispatch) => {
     try {
-        const response = await registrationService(email, password);
-        console.log('registration', response);
+        const { registration, setLoading } = userSlice.actions;
+        dispatch(setLoading(true));
 
+        const response = await registrationService(email, password);
         localStorage.setItem('token', response.data.accessToken);
-        const { registration } = userSlice.actions;
         dispatch(registration({ email }));
+        dispatch(push(paths.RESULT.SUCCESS));
     } catch (e) {
         console.log(e);
+        if (isAxiosError(e) && e.response?.status === 409) {
+            dispatch(push(paths.RESULT.ERROR_USER_EXIST));
+        } else {
+            dispatch(push(paths.RESULT.ERROR));
+        }
     }
 };
 
