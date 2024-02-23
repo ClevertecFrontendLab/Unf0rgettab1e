@@ -4,7 +4,7 @@ import { GooglePlusOutlined } from '@ant-design/icons';
 import { useAppDispatch } from '@hooks';
 import { login } from '@actions/authAction';
 import { push } from 'redux-first-history';
-import { Paths } from '@utils/constants/Paths';
+import { paths } from '@utils/constants/paths';
 import { userSlice } from '@redux/reducers/UserSlice';
 
 export const LoginForm: React.FC = () => {
@@ -16,7 +16,7 @@ export const LoginForm: React.FC = () => {
     const loginFinishHandler = async () => {
         dispatch(userSlice.actions.setLoading(true));
         await dispatch(login(email, password));
-        dispatch(push(Paths.MAIN));
+        dispatch(push(paths.MAIN));
     };
 
     return (
@@ -29,7 +29,13 @@ export const LoginForm: React.FC = () => {
             <Form.Item
                 name='email'
                 className='auth-form__item'
-                rules={[{ required: true, message: 'Please input your Username!' }]}
+                rules={[
+                    {
+                        required: true,
+                        type: 'email',
+                        message: '',
+                    },
+                ]}
             >
                 <Input
                     className='auth-form__input'
@@ -42,7 +48,13 @@ export const LoginForm: React.FC = () => {
             <Form.Item
                 name='password'
                 className='auth-form__item'
-                rules={[{ required: true, message: 'Please input your Password!' }]}
+                rules={[
+                    {
+                        required: true,
+                        pattern: new RegExp(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{8,}$/),
+                        message: 'Пароль не менее 8 символов, с заглавной буквой и цифрой',
+                    },
+                ]}
             >
                 <Input.Password
                     className='auth-form__input'

@@ -6,7 +6,7 @@ import { MainHeader } from '@components/MainHeader';
 import { MainCard } from '@components/MainCard';
 import { MainFooter } from '@components/MainFooter';
 import { push } from 'redux-first-history';
-import { Paths } from '@utils/constants/Paths';
+import { paths } from '@utils/constants/paths';
 import { useAppDispatch } from '@hooks';
 import './MainPage.scss';
 
@@ -17,7 +17,7 @@ export const MainPage: React.FC = () => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        !localStorage.getItem('token') ? dispatch(push(Paths.AUTH)) : '';
+        !localStorage.getItem('token') ? dispatch(push(paths.AUTH)) : '';
     }, [dispatch]);
 
     return (
